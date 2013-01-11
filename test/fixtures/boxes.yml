@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  uid: MyString
+  display_name: MyString
+  dropbox_access_key: MyString
+  dropbox_access_secret: MyString
+
+two:
+  uid: MyString
+  display_name: MyString
+  dropbox_access_key: MyString
+  dropbox_access_secret: MyString

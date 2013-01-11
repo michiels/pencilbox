@@ -1,0 +1,82 @@
+// Place all the styles related to the boxes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  font-family: sans-serif;
+}
+
+@media print {
+  body {
+    // font-family: serif;
+  }
+  .highlight pre {
+    background-color: #f0f0f0;
+  }
+  article {
+    border-bottom: 0;
+  }
+}
+
+<%= Pygments.css('.highlight') %>
+
+.container {
+  width: 80%;
+  max-width: 960px;
+  margin: auto;
+}
+
+code {
+  background-color: #f0f0f0;
+  display: inline-block;
+  padding: 0 2px;
+}
+
+.highlight {
+  zoom: 1;
+  pre {
+    padding: 10px;
+  }
+}
+
+article {
+  page-break-after: always;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 2em;
+  &:last-child {
+    page-break-after: auto;
+    border-bottom: 0;
+  }
+  p, ul, ol, h2, h3 {
+    max-width: 600px;
+    margin: auto;
+    line-height: 1.7;
+    page-break-inside: never;
+    margin-bottom: 1em;
+  }
+  p {
+    // text-indent: 2em;
+    &.with_image {
+      margin: 2em 0;
+      max-width: 100%;
+    }
+  }
+
+  pre {
+    margin: 2em 0;
+    page-break-inside: never;
+  }
+
+  h1 {
+    font-size: 2.5em;
+    font-weight: normal;
+    text-align: center;
+  }
+  h2 {
+    font-weight: bold;
+  }
+
+  p > img {
+    max-width: 100%;
+  }
+}
