@@ -1,10 +1,9 @@
 Pencilbox::Application.routes.draw do
 
   resources :boxes do
-  end
-
-  scope "boxes" do
-    get "images/*filename" => "images#show"
+    member do
+      get "images/*filename" => "images#show"
+    end
   end
 
   get "dropbox/authorize" => "dropbox#authorize"

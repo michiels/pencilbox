@@ -1,8 +1,12 @@
 class ImagesController < ApplicationController
 
   def show
-    dbsession = DropboxSession.deserialize(session[:dropbox_session])
-    @client = DropboxClient.new(dbsession, :app_folder)
+    @box = Box.find(params[:id])
+
+    @dbsession = DropboxSession.new(ENV['DROPBOX_APP_KEY'], ENV['DROPBOX_APP_SECRET'])
+    @dbsession.set_access_token(@box.dropbox_access_key, @box.dropbox_access_secret)
+
+    @client = DropboxClient.new(@dbsession, :app_folder)
 
     file = "/#{params[:filename]}.#{params[:format]}"
 
