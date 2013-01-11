@@ -4,7 +4,6 @@ class DropboxController < ApplicationController
   def authorize
     if !params[:oauth_token]
       dbsession = DropboxSession.new(ENV['DROPBOX_APP_KEY'], ENV['DROPBOX_APP_SECRET'])
-      raise ENV['DROPBOX_APP_KEY']
       session[:dropbox_session] = dbsession.serialize
 
       redirect_to dbsession.get_authorize_url url_for(action: "authorize")
