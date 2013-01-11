@@ -31,6 +31,7 @@ gem 'jquery-rails'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
+gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
 
 gem 'dropbox-sdk', require: 'dropbox_sdk'
 gem 'redcarpet'

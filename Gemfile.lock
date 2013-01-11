@@ -5,6 +5,15 @@ GIT
     activerecord-deprecated_finders (0.0.1)
 
 GIT
+  remote: git://github.com/rails/activerecord-session_store.git
+  revision: 9110aa19ca4879400e9425b871b114de5fcc9949
+  specs:
+    activerecord-session_store (0.0.1)
+      actionpack (~> 4.0.0.beta)
+      activerecord (~> 4.0.0.beta)
+      railties (~> 4.0.0.beta)
+
+GIT
   remote: git://github.com/rails/arel.git
   revision: 38d0a222e275d917a2c1d093b24457bafb600a00
   specs:
@@ -152,6 +161,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord-deprecated_finders!
+  activerecord-session_store!
   arel!
   coffee-rails!
   dropbox-sdk
