@@ -13,10 +13,10 @@ class DropboxController < ApplicationController
       dbsession.get_access_token
 
       client = DropboxClient.new(dbsession, :app_folder)
-      uid = client.account_info['uid']
+      uid = client.account_info['uid'].to_s
       display_name = client.account_info['display_name']
 
-      box = Box.find_or_initialize_by_uid(uid)
+      box = Box.find_or_initialize_by_uid(uid.to_s)
       box.display_name = display_name
       box.dropbox_access_key = dbsession.access_token.key
       box.dropbox_access_secret = dbsession.access_token.secret
