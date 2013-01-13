@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130113164244) do
+ActiveRecord::Schema.define(version: 20130113165521) do
 
   create_table "articles", force: true do |t|
     t.integer  "box_id"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20130113164244) do
     t.string   "dropbox_access_secret"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "dropbox_cursor"
   end
 
   create_table "sessions", force: true do |t|
