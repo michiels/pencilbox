@@ -4,6 +4,7 @@
 
 body {
   font-family: sans-serif;
+  padding-top: 40px;
 }
 
 @media print {
@@ -93,5 +94,18 @@ article {
 
   p > img {
     max-width: 100%;
+  }
+}
+
+@media (max-width : 400px) {
+  body {
+    padding-top: 60px;
+  }
+  .container {
+    width: 95%;
+  }
+  article h1 {
+    font-size: 22px;
+    text-align: left;
   }
 }
