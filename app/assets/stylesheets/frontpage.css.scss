@@ -1,0 +1,75 @@
+// Place all the styles related to the frontpage controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "compass/css3";
+
+body {
+  font-family: "Lucida Sans", sans-serif;
+}
+
+.link_button {
+  text-decoration: none;
+  font-family: "Lucida Grande", sans-serif;
+  color: #555;
+  font-weight: bold;
+  padding: 8px 10px;
+  @include border-radius(4px);
+  @include background(asset-url('dropbox.png'), #f9f9f9);
+  background-size: 1.3em;
+  background-repeat: no-repeat;
+  border: 1px solid #eee;
+  padding-left: 2.4em;
+  font-size: 20px;
+  background-position: 10px center;
+  @include text-shadow(#fff 0 1px 0);
+  @include box-shadow(#fff 0 1px 0 inset);
+  border-bottom: 1px solid #e0e0e0;
+  &:hover {
+    @include box-shadow(#fff 0 1px 0 inset);
+    background-color: #fdfdfd;
+    border: 1px solid #ddd;
+    border-bottom: 1px solid #d0d0d0;
+  }
+}
+
+.frontpage_center {
+  font-family: "Donegal One", serif;
+}
+
+.linker {
+  text-align: center;
+  line-height: 1.5;
+  p {
+    margin-bottom: 2em;
+  }
+  p.hint {
+    color: #555;
+    font-size: 12px;
+  }
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.footer_container {
+  width: 80%;
+  margin: auto;
+  color: #999;
+  font-size: 12px;
+  border-top: 1px solid #eee;
+  p {
+    text-align: center;
+  }
+  a {
+    color: #777;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+}

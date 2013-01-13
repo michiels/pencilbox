@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/ai/compass-rails.git
+  revision: 9d8069d54a66a3bcf20e8c7ebdccde681104a6af
+  branch: rails4
+  specs:
+    compass-rails (1.0.0.rc.3)
+      compass (~> 0.12.rc.0)
+
+GIT
   remote: git://github.com/rails/activerecord-deprecated_finders.git
   revision: 2c4ebb2e79095efdd189c08861e3e7f694c52215
   specs:
@@ -93,10 +101,15 @@ GEM
   specs:
     atomic (1.0.1)
     builder (3.1.4)
+    chunky_png (1.2.7)
     coffee-script (2.2.0)
       coffee-script-source
       execjs
     coffee-script-source (1.4.0)
+    compass (0.13.alpha.0)
+      chunky_png (~> 1.2)
+      fssm (>= 0.2.7)
+      sass (~> 3.2.0.alpha.93)
     daemons (1.1.8)
     dropbox-sdk (1.5.1)
       json
@@ -104,6 +117,7 @@ GEM
     eventmachine (0.12.10)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    fssm (0.2.9)
     hike (1.2.1)
     i18n (0.6.1)
     jquery-rails (2.1.4)
@@ -164,6 +178,7 @@ DEPENDENCIES
   activerecord-session_store!
   arel!
   coffee-rails!
+  compass-rails!
   dropbox-sdk
   jquery-rails
   pg
