@@ -15,6 +15,8 @@ class BoxesController < ApplicationController
       article = @box.articles.where(path: path).first
       article ||= @box.articles.new(path: path, body: @client.get_file(path), published_at: Time.now)
 
+      article.save
+
       if article.updated_at < dropbox_file['modified']
         article.body = @client.get_file(path)
         article.updated_at = dropbox_file['modified']
@@ -25,7 +27,7 @@ class BoxesController < ApplicationController
 
     @box.update_column(:dropbox_cursor, root['cursor'])
 
-    @articles = @box.articles.order(:published_at).paginate page: params[:page]
+    @articles = @box.articles.order('published_at desc').paginate page: params[:page]
   end
 
 end
