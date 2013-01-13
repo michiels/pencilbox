@@ -1,7 +1,7 @@
-<% @ordered_files.each do |file| %>
+
+<% @articles.each do |article| %>
   <article>
-    <% out = @client.get_file(file['path']) %>
     <% markdown = Redcarpet::Markdown.new(HTMLWithAlbino, :fenced_code_blocks => true) %>
-    <%= raw(markdown.render(out).gsub(/images\//, "#{box_path(@box)}/images/")) %>
+    <%= raw(markdown.render(article.body).gsub(/images\//, "#{box_path(@box)}/images/")) %>
   </article>
 <% end %>

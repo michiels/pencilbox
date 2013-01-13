@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130111112448) do
+ActiveRecord::Schema.define(version: 20130113164244) do
+
+  create_table "articles", force: true do |t|
+    t.integer  "box_id"
+    t.string   "path"
+    t.datetime "published_at"
+    t.text     "body",         limit: 1048575
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "boxes", force: true do |t|
     t.string   "uid"

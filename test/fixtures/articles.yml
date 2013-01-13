@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  box_id: 1
+  path: MyString
+  published_at: 2013-01-13 17:42:44
+  body: MyText
+
+two:
+  box_id: 1
+  path: MyString
+  published_at: 2013-01-13 17:42:44
+  body: MyText
