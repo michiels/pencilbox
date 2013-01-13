@@ -13,5 +13,7 @@ module Pencilbox
 
     # Custom directories with classes and modules you want to be autoloadable.
     config.autoload_paths += %W(#{config.root}/extra)
+
+    config.assets.precompile += %w( fontawesome-webfont.ttf fontawesome-webfont.woff )
   end
 end
