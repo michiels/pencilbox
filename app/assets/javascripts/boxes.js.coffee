@@ -5,3 +5,7 @@
 $ ->
   $('p img').each () ->
     $(this).parent().addClass('with_image')
+
+  $('a[data-behavior=close-branding-bar]').click () ->
+    $('.branding').fadeOut()
+    return false

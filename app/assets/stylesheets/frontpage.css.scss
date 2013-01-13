@@ -24,12 +24,12 @@ body {
   background-position: 10px center;
   @include text-shadow(#fff 0 1px 0);
   @include box-shadow(#fff 0 1px 0 inset);
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 2px solid #e0e0e0;
   &:hover {
     @include box-shadow(#fff 0 1px 0 inset);
     background-color: #fdfdfd;
     border: 1px solid #ddd;
-    border-bottom: 1px solid #d0d0d0;
+    border-bottom: 2px solid #d0d0d0;
   }
 }
 

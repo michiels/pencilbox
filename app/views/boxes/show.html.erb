@@ -9,6 +9,6 @@
   <article>
     <% out = @client.get_file(file['path']) %>
     <% markdown = Redcarpet::Markdown.new(HTMLWithAlbino, :fenced_code_blocks => true) %>
-    <%= raw(markdown.render(out).gsub(/\/images/, "#{box_path(@box)}/images")) %>
+    <%= raw(markdown.render(out).gsub(/images\//, "#{box_path(@box)}/images/")) %>
   </article>
 <% end %>

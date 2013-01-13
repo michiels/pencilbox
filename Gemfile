@@ -26,6 +26,7 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
   gem 'compass-rails', github: 'ai/compass-rails', branch: 'rails4'
+  gem 'font-awesome-rails', github: 'bokmann/font-awesome-rails'
 end
 
 gem 'jquery-rails'

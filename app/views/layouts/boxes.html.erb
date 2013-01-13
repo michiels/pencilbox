@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> </title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body style="padding-top: 40px;">
+
+<div class="branding">
+  <div class="container">
+    <a href="#" class="close_branding_bar" data-behavior="close-branding-bar"><i class="icon-remove"></i></a>
+    <p><%= link_to "This is someone's Pencilbox", root_url %>. The simplest way to publish straight from iA Writer.</p>
+  </div>
+</div>
+
+<div class="container">
+  <%= yield %>
+</div>
+
+</body>
+</html>

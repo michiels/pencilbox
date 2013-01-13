@@ -1,14 +1,35 @@
 Pencilbox::Application.routes.draw do
 
-  resources :boxes do
-    member do
-      get "images/*filename" => "images#show"
+  def boxes_host
+    if Rails.env.production?
+      "pencilbox.es"
+    else
+      "pencilboxes.dev"
     end
   end
 
-  get "dropbox/authorize" => "dropbox#authorize", :as => :link_dropbox
+  def root_host
+    if Rails.env.production?
+      "thisispencilbox.com"
+    else
+      "thisispencilbox.dev"
+    end
+  end
 
-  root to: "frontpage#index"
+  constraints host: /^pencilboxes.dev|pencilbox.es/ do
+    root to: redirect(host: root_host), defaults: { host: root_host }
+    resources :boxes, :path => "", :defaults => { host: boxes_host } do
+      member do
+        get "images/*filename" => "images#show"
+      end
+    end
+  end
+
+  constraints host: /^thisispencilbox.com|thisispencilbox.dev/ do
+    get "dropbox/authorize" => "dropbox#authorize", :as => :link_dropbox
+  end
+
+  root to: "frontpage#index", defaults: { host: root_host }
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

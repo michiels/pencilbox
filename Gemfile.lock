@@ -7,6 +7,13 @@ GIT
       compass (~> 0.12.rc.0)
 
 GIT
+  remote: git://github.com/bokmann/font-awesome-rails.git
+  revision: 84e6fb5ef576ad5057ba595e8c865eaffc859f00
+  specs:
+    font-awesome-rails (0.5.0)
+      railties (>= 3.1)
+
+GIT
   remote: git://github.com/rails/activerecord-deprecated_finders.git
   revision: 2c4ebb2e79095efdd189c08861e3e7f694c52215
   specs:
@@ -180,6 +187,7 @@ DEPENDENCIES
   coffee-rails!
   compass-rails!
   dropbox-sdk
+  font-awesome-rails!
   jquery-rails
   pg
   pygments.rb
