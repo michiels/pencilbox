@@ -21,13 +21,14 @@ class BoxesController < ApplicationController
           if %w(text/plain application/octet-stream).include?(dropbox_file['mime_type']) && (path.count('/') == 1)
             article.published_at = Time.now
             article.body = @client.get_file(path)
+            article.save
           end
         elsif article.updated_at < dropbox_file['modified']
           article.body = @client.get_file(path)
           article.updated_at = dropbox_file['modified']
+          article.save
         end
 
-        article.save
       end
 
     end
