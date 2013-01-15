@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20130113165521) do
     t.integer  "box_id"
     t.string   "path"
     t.datetime "published_at"
-    t.text     "body",         limit: 1048575
+    t.text     "body",         limit: 16777215
     t.datetime "created_at"
     t.datetime "updated_at"
   end

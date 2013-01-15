@@ -18,7 +18,7 @@ class BoxesController < ApplicationController
         article.destroy
       else
         if article.new_record?
-          if %w(text/plain application/octet-stream).include?(dropbox_file['mime_type']) && (path.count('/') == 1)
+          if %w(text/plain application/octet-stream).include?(dropbox_file['mime_type']) && path.count('/') < 2
             article.published_at = Time.now
             article.body = @client.get_file(path)
             article.save
