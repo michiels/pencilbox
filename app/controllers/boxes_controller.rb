@@ -9,20 +9,25 @@ class BoxesController < ApplicationController
     @client = DropboxClient.new(@dbsession, :app_folder)
 
     root = @client.delta(@box.dropbox_cursor)
-    ordered_files = root['entries'].reject{ |path, metadata| metadata.nil? || !['text/plain', 'application/octet-stream'].include?(metadata['mime_type']) || path.count('/') > 1 }
+    ordered_files = root['entries']
 
     ordered_files.each do |path, dropbox_file|
-      article = @box.articles.where(path: path).first
-      article ||= @box.articles.new(path: path, body: @client.get_file(path), published_at: Time.now)
+      article = @box.articles.where(path: path).first_or_initialize
 
-      article.save
+      if dropbox_file.nil?
+        article.destroy
+      else
+        if article.new_record? && %w(text/plain application/octet-stream).include?(dropbox_file['mime_type']) && (path.count('/') == 1)
+          article.published_at = Time.now
+          article.body = @client.get_file(path)
+        elsif article.updated_at < dropbox_file['modified']
+          article.body = @client.get_file(path)
+          article.updated_at = dropbox_file['modified']
+        end
 
-      if article.updated_at < dropbox_file['modified']
-        article.body = @client.get_file(path)
-        article.updated_at = dropbox_file['modified']
+        article.save
       end
 
-      article.save
     end
 
     @box.update_column(:dropbox_cursor, root['cursor'])

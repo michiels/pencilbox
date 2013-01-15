@@ -1,0 +1,6 @@
+#!/bin/sh
+
+rm -f log/*.log
+
+bundle --without production --binstubs
+bundle exec rake db:reset
