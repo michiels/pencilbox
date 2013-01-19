@@ -1,6 +1,5 @@
 language: ruby
 before_script:
-  - mysql -e 'create database pencilbox_test'
   - rake db:setup
 rvm:
   - 1.9.3
