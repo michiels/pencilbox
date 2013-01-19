@@ -19,6 +19,8 @@ role :db,  "thisispencilbox.com", :primary => true # This is where Rails migrati
 set :user, "deploy"
 set :use_sudo, false
 
+set :branch, ENV['BRANCH'] || "master"
+
 before "deploy:finalize_update" do
   run "rm -f #{release_path}/config/database.yml; ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
   #run "rm -f #{release_path}/config/sidekiq.yml; ln -nfs #{shared_path}/config/sidekiq.yml #{release_path}/config/sidekiq.yml"
