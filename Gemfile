@@ -33,6 +33,7 @@ gem 'dropbox-sdk', require: 'dropbox_sdk'
 gem 'redcarpet'
 gem 'pygments.rb'
 gem 'exception_notification'
+gem 'devise'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
