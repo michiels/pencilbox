@@ -43,6 +43,12 @@ GIT
       railties (>= 4.0.0.beta, < 5.0)
 
 GIT
+  remote: git://github.com/rails/journey.git
+  revision: e64274443f8420df2518cf2206a2c640d9d8e196
+  specs:
+    journey (2.0.0.20120723141804)
+
+GIT
   remote: git://github.com/rails/sass-rails.git
   revision: ae8138a89cac397c0df903dd533e2862902ce8f5
   specs:
@@ -60,6 +66,14 @@ GIT
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
+
+PATH
+  remote: ../devise
+  specs:
+    devise (2.2.2)
+      bcrypt-ruby (~> 3.0)
+      orm_adapter (~> 0.1)
+      warden (~> 1.2.1)
 
 PATH
   remote: /Users/michiel/Code/rails
@@ -117,10 +131,6 @@ GEM
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
       sass (~> 3.2.0.alpha.93)
-    devise (1.5.3)
-      bcrypt-ruby (~> 3.0)
-      orm_adapter (~> 0.0.3)
-      warden (~> 1.1)
     dropbox-sdk (1.5.1)
       json
     erubis (2.7.0)
@@ -153,7 +163,7 @@ GEM
     multi_json (1.5.0)
     multipart-post (1.1.5)
     mysql2 (0.3.11)
-    orm_adapter (0.0.7)
+    orm_adapter (0.4.0)
     polyglot (0.3.3)
     posix-spawn (0.3.6)
     pygments.rb (0.3.7)
@@ -218,10 +228,11 @@ DEPENDENCIES
   arel!
   coffee-rails!
   compass-rails!
-  devise
+  devise!
   dropbox-sdk
   exception_notification
   font-awesome-rails!
+  journey!
   jquery-rails
   mysql2
   pygments.rb

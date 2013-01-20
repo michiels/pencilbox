@@ -1,13 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  uid: MyString
-  display_name: MyString
-  dropbox_access_key: MyString
-  dropbox_access_secret: MyString
-
-two:
-  uid: MyString
-  display_name: MyString
-  dropbox_access_key: MyString
-  dropbox_access_secret: MyString
+no_user:
+  display_name: First Name Last Name
+  dropbox_access_key: abcdefg
+  dropbox_access_secret: gfedcba

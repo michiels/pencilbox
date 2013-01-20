@@ -1,6 +1,7 @@
 Pencilbox::Application.routes.draw do
 
   devise_for :users, controllers: { registrations: "users/registrations" }
+  
   def boxes_host
     if Rails.env.production?
       "pencilbox.es"

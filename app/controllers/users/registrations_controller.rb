@@ -3,7 +3,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def after_sign_up_path_for(resource)
     box_url(resource.box)
   end
-
+  
   protected
 
   def build_resource(hash=nil)
@@ -12,12 +12,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
     self.resource.password_confirmation = self.resource.password
 
-    if session[:signup_box_id]
-      box = Box.find(session[:signup_box_id])
+    if session['devise.signup_box_id']
+      box = Box.find(session['devise.signup_box_id'])
       self.resource.box = box
-    else
-      session.delete(:signup_box_id)
-      redirect_to root_url
     end
   end
 

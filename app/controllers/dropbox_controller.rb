@@ -26,7 +26,7 @@ class DropboxController < ApplicationController
         if box.user.present?
           redirect_to box_url(box)
         else
-          session[:signup_box_id] = box.id
+          session['devise.signup_box_id'] = box.id
           redirect_to new_user_registration_url
         end
       else
