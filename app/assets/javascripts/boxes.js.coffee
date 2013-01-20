@@ -7,5 +7,6 @@ $ ->
     $(this).parent().addClass('with_image')
 
   $('a[data-behavior=close-branding-bar]').click () ->
-    $('.branding').fadeOut()
+    $('.branding').fadeOut () ->
+      $('body').removeClass('with_message')
     return false

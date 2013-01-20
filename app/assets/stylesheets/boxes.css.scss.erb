@@ -4,7 +4,29 @@
 
 body.boxes {
   font-family: sans-serif;
+}
+
+body.with_message {
   padding-top: 40px;
+}
+
+.not_found {
+  p {
+    line-height: 1.5;
+  }
+  .picture {
+    margin-left: 20%;
+    font-size: 150px;
+    float: right;
+  }
+}
+
+@media (max-width: 320px) {
+  body .not_found .picture {
+    float: none;
+    font-size: 70px;
+    margin: 0;
+  }
 }
 
 @media print {
@@ -51,6 +73,7 @@ code {
 
 .highlight {
   zoom: 1;
+  overflow: auto;
   pre {
     padding: 10px;
   }
@@ -98,11 +121,20 @@ article {
   }
 }
 
-@media (max-width : 500px) {
+@media (max-width : 320px) {
+  body.boxes .branding .container p {
+    font-size: 12px;
+  }
+}
+
+@media (max-width : 480px) {
   .close_branding_bar {
     font-size: 26px;
   }
-  body.boxes {
+  body.boxes .branding {
+    font-size: 8px;
+  }
+  body.boxes.with_message {
     padding-top: 60px;
   }
   .container {

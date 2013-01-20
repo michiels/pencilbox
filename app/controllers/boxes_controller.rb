@@ -4,7 +4,8 @@ class BoxesController < ApplicationController
     @box = User.where(username: params[:id]).first.try(:box)
 
     if @box.blank?
-      raise ActiveRecord::RecordNotFound
+      render :not_found
+      return
     end
 
     @box.synchronize!
