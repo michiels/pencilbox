@@ -24,12 +24,6 @@
   .control-group.username {
     margin-bottom: 20px;
     font-size: 15px;
-    label {
-      text-align: center;
-      display: block;
-      font-size: 18px;
-      margin-bottom: 15px;
-    }
     .help-block {
       margin-top: 10px;
       margin-bottom: 10px;
@@ -52,8 +46,12 @@
   }
 
   p {
-    line-height: 1.5;
+    text-align: center;
+    display: block;
+    font-size: 18px;
+    margin-bottom: 20px;
   }
+
   input {
     width: 100%;
   }

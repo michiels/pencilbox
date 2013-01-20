@@ -4,13 +4,14 @@
 
     <h1>Almost done</h1>
 
+    <p>Choose a Pencilbox address, enter your account details and you are good to go.</p>
+
     <div class="control-group username <%= "error" if resource.errors[:username].any? %>">
-      <%= f.label :username, "Choose a Pencilbox address, enter your account details and you are good to go. " %>
 
       <div class="controls">
         <div class="input-prepend">
           <span class="add-on">http://pencilbox.es/</span>
-          <%= f.text_field :username, placeholder: "username" %>
+          <%= f.text_field :username, placeholder: "username", maxlength: 20 %>
         </div>
         <div class="help-block">
           <% if resource.errors[:username].any? %>

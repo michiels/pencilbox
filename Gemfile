@@ -33,7 +33,7 @@ gem 'dropbox-sdk', require: 'dropbox_sdk'
 gem 'redcarpet'
 gem 'pygments.rb'
 gem 'exception_notification'
-gem 'devise', path: '../devise'
+gem 'devise', github: 'firmhouse/devise', branch: 'rails4'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

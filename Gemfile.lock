@@ -14,6 +14,16 @@ GIT
       railties (>= 3.1)
 
 GIT
+  remote: git://github.com/firmhouse/devise.git
+  revision: 6524760bddd04185da0255cb780e3639056fc3fa
+  branch: rails4
+  specs:
+    devise (2.2.2)
+      bcrypt-ruby (~> 3.0)
+      orm_adapter (~> 0.1)
+      warden (~> 1.2.1)
+
+GIT
   remote: git://github.com/rails/activerecord-deprecated_finders.git
   revision: 2e7b35d7948cefb2bba96438873d7f7bb1961a03
   specs:
@@ -66,14 +76,6 @@ GIT
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
-
-PATH
-  remote: ../devise
-  specs:
-    devise (2.2.2)
-      bcrypt-ruby (~> 3.0)
-      orm_adapter (~> 0.1)
-      warden (~> 1.2.1)
 
 PATH
   remote: /Users/michiel/Code/rails
