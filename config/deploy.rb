@@ -1,12 +1,13 @@
 require "bundler/capistrano"
-# require "sidekiq/capistrano"
+require 'net/https'
+require 'json'
 
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
 
 set :application, "pencilbox_production"
 set :repository,  "git@github.com:michiels/pencilbox.git"
-set :deploy_via, :remote_cache
+set :deploy_via, :checkout
 
 set :scm, :git
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
@@ -30,6 +31,27 @@ before "deploy:finalize_update" do
   run "ln -nfs #{shared_path}/pids #{release_path}/tmp/pids"
   run "ln -nfs #{shared_path}/sockets #{release_path}/tmp/sockets"
   run "ln -nfs #{shared_path}/../config/unicorn.rb #{release_path}/config/unicorn.rb"
+end
+
+before "deploy:update_code", "semaphore:check"
+
+namespace :semaphore do
+  task :check do
+    commit_sha = real_revision
+    uri = URI.parse("https://api.github.com/repos/michiels/pencilbox/statuses/#{commit_sha}")
+    http = Net::HTTP.new(uri.host, uri.port)
+    http.use_ssl = true
+    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+    response = http.get(uri.request_uri)
+
+    commit_status = JSON.parse(response.body)
+    build_success = commit_status.first['state'] == "success"
+
+    if !build_success
+      raise CommandError.new("The commit that is being deployed does not have a succesful build status.")
+    end
+  end
 end
 
 namespace :deploy do
