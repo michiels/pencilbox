@@ -77,7 +77,7 @@ Devise.setup do |config|
   # able to access the website for two days without confirming his account,
   # access will be blocked just in the third day. Default is 0.days, meaning
   # the user cannot access the website without confirming his account.
-  # config.confirm_within = 2.days
+  config.confirm_within = 2.days
 
   # Defines which key will be used when confirming an account
   # config.confirmation_keys = [ :email ]
@@ -191,7 +191,7 @@ Devise.setup do |config|
   # config.navigational_formats = [:"*/*", "*/*", :html]
 
   # The default HTTP method used to sign out a resource. Default is :delete.
-  config.sign_out_via = :delete
+  config.sign_out_via = :get
 
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
