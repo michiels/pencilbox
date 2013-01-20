@@ -1,0 +1,57 @@
+<div class="signup_box">
+
+  <%= form_for resource, as: resource_name, url: registration_path(resource_name), html: { class: "new_user form-inline" } do |f| %>
+
+    <h1>Almost done</h1>
+
+    <p>Choose a Pencilbox address, enter your account details and you are good to go.</p>
+
+    <div class="control-group username <%= "error" if resource.errors[:username].any? %>">
+
+      <div class="controls">
+        <div class="input-prepend">
+          <span class="add-on">http://pencilbox.es/</span>
+          <%= f.text_field :username, placeholder: "username", maxlength: 20 %>
+        </div>
+        <div class="help-block">
+          <% if resource.errors[:username].any? %>
+          Your Pencilbox address <%= resource.errors[:username].first %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="account_details">
+
+      <div class="control-group <%= "error" if resource.errors[:email].any? %>">
+        <div class="controls">
+          <%= f.email_field :email, placeholder: "Your email" %>
+          <% if resource.errors[:email].any? %>
+            <div class="help-block">
+              Your email <%= resource.errors[:email].first %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="control-group <%= "error" if resource.errors[:email].any? %>">
+        <div class="controls">
+          <%= f.password_field :password, placeholder: "Choose a password" %>
+          <% if resource.errors[:password].any? %>
+            <div class="help-block">
+              Password <%= resource.errors[:password].first %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <div class="controls">
+        <%= f.submit "Go to my Pencilbox", class: "btn-inverse btn-large btn" %>
+      </div>
+    </div>
+
+  <% end %>
+
+</div>

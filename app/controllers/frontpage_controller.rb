@@ -1,7 +1,9 @@
 class FrontpageController < ApplicationController
 
   def index
-    logger.info(ENV.inspect)
+    if user_signed_in?
+      redirect_to dashboard_url
+    end
   end
   
 end

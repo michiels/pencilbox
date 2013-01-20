@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Pencilbox::Application.config.secret_key_base = '6d3851a9d03e306f576fd323627db2867346d603560e03c444351506f027d94afe508f09307861e450be13e7bc9e1d68b8c833a14b4ed0dfb4417ddd1d3e683f'
+Pencilbox::Application.config.secret_key_base = 'df6323d0bbbb9f3e158c3548606f11de1e023a91ad9a503a3ba90de49db9b5055d437901e3e507d98c6eec842a081d0e22b074e2a954a0dd59cdd64274229579'
