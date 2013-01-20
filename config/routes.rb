@@ -1,5 +1,7 @@
 Pencilbox::Application.routes.draw do
 
+  devise_for :users, controllers: { registrations: "users/registrations" }
+  
   def boxes_host
     if Rails.env.production?
       "pencilbox.es"
@@ -27,6 +29,7 @@ Pencilbox::Application.routes.draw do
 
   constraints host: /^thisispencilbox.com|thisispencilbox.dev/ do
     get "dropbox/authorize" => "dropbox#authorize", :as => :link_dropbox
+    get "home" => "dashboard#index", :as => :dashboard
   end
 
   root to: "frontpage#index", defaults: { host: root_host }

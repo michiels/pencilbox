@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
-ruby "1.9.3"
 
 gem 'rails',     github: 'rails/rails'
+gem 'journey',   github: 'rails/journey'
 gem 'arel',      github: 'rails/arel'
 gem 'activerecord-deprecated_finders', github: 'rails/activerecord-deprecated_finders'
 
@@ -33,6 +33,7 @@ gem 'dropbox-sdk', require: 'dropbox_sdk'
 gem 'redcarpet'
 gem 'pygments.rb'
 gem 'exception_notification'
+gem 'devise', github: 'firmhouse/devise', branch: 'rails4'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

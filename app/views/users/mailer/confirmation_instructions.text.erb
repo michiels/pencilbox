@@ -1,0 +1,12 @@
+Hey,
+
+You just created a Pencilbox account. We would like to verify if this
+is your email address. You can do this by clicking on the following link:
+
+  <%= confirmation_url(@resource, confirmation_token: @resource.confirmation_token) %>
+
+This way, we can send you password resets and other updates. Also we'll know 
+that this email address really belongs to you.
+
+Bob & Michiel
+This is Pencilbox
