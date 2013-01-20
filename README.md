@@ -11,6 +11,12 @@ ln -n ~/this/folder ~/.pow/thisispencilbox
 ln -n ~/this/folder ~/.pow/pencilboxes
 ```
 
+Install the bundler pre-release:
+
+```
+gem install bundler --pre
+```
+
 Run
 
 ```
@@ -19,7 +25,7 @@ script/setup
 
 This will run `bundler` and create the databases.
 
-Create an application on Dropbox and add the following to a file named `.powenv`:
+Create an application (https://www.dropbox.com/developers/apps) on Dropbox and add the following to a file named `.powenv`:
 
 ```
 export DROPBOX_APP_KEY=
