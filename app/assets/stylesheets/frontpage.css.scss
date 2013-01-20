@@ -80,13 +80,11 @@ body {
   }
 }
 
-@media (min-height: 480px) {
-  .footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-  }
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .footer_container {
