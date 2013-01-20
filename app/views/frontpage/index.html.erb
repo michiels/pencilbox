@@ -1,4 +1,9 @@
-<p class="frontpage_account"><%= link_to "Sign in", new_user_session_path %></p>
+<p class="frontpage_account">
+  <%= link_to new_user_session_path do %>
+    <i class="icon-signin"></i> Sign in
+  <% end %>
+</p>
+
 <div class="frontpage_center" style="margin-top: 100px; text-align: center; font-size: 20px;">This is Pencilbox</div>
 
 <div class="linker" style="margin: 100px 0;">

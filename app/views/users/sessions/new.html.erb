@@ -4,7 +4,11 @@
 
     <h1>Welcome back</h1>
 
-    <p><%= link_to "Don't have an account yet?", root_url %></p>
+    <% if alert %>
+      <p class="alert"><%= alert %></p>
+    <% else %>
+      <p><%= link_to "Don't have an account yet?", root_url %></p>
+    <% end %>
 
     <div class="account_details">
 

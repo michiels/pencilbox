@@ -10,6 +10,14 @@ body {
 
 .frontpage_account {
   text-align: right;
+  a {
+    text-decoration: none;
+    color: #0077ba;
+    &:hover {
+      color: #000;
+      text-decoration: underline;
+    }
+  }
 }
 
 .link_button {
