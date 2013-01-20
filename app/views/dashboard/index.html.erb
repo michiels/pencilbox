@@ -1,3 +1,5 @@
 <h1>Hi!</h1>
 
 <p>Your Pencilbox address: <%= link_to box_url(@user.box), box_url(@user.box) %></p>
+
+<p><%= link_to "Sign out", destroy_user_session_path, class: "btn btn-danger" %></p>
