@@ -5,12 +5,22 @@
 @import "compass/css3";
 @import "compass/utilities";
 
+@media (max-width: 320px) {
+  body .signup_box {
+    width: 100%;
+    padding: 0;
+    position: static;
+    margin: 0;
+    border: 0;
+  }
+}
+
 .signup_box {
   width: 400px;
   position: absolute;
   top: 50%;
   left: 50%;
-  margin-left: -200px;
+  margin-left: -220px;
   margin-top: -170px;
   @include border-radius;
   border: 1px solid #ccc;

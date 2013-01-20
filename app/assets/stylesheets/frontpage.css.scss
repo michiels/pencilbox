@@ -8,6 +8,18 @@ body {
   font-family: "Lucida Sans", sans-serif;
 }
 
+.frontpage_center {
+  margin-top: 100px; 
+  text-align: center; 
+  font-size: 20px;
+}
+
+@media (max-height: 480px) {
+  body .frontpage_center {
+    margin-top: 30px;
+  }
+}
+
 .frontpage_account {
   text-align: right;
   a {
@@ -52,6 +64,7 @@ body {
 .linker {
   text-align: center;
   line-height: 1.5;
+  margin: 100px 0;
   p {
     margin-bottom: 2em;
   }
@@ -61,11 +74,19 @@ body {
   }
 }
 
-.footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
+@media (max-height: 480px) {
+  body .linker {
+    margin-top: 50px;
+  }
+}
+
+@media (min-height: 480px) {
+  .footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
 }
 
 .footer_container {

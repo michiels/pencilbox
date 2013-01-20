@@ -2,12 +2,12 @@
 
   <%= form_for resource, as: resource_name, url: session_path(resource_name), html: { class: "new_user form-inline" } do |f| %>
 
-    <h1>Welcome back</h1>
+    <h1>Sign in</h1>
 
     <% if alert %>
       <p class="alert"><%= alert %></p>
     <% else %>
-      <p><%= link_to "Don't have an account yet?", root_url %></p>
+      <p>Or, <%= link_to "link up your Dropbox", root_url %>.</p>
     <% end %>
 
     <div class="account_details">

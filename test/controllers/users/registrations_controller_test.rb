@@ -12,4 +12,12 @@ class Users::RegistrationsControllerTest < ActionController::TestCase
 
     assert_nil session['devise.signup_box_id']
   end
+
+  test "new should redirect to homepage when no Dropbox connected in session" do
+    @request.env['devise.mapping'] = Devise.mappings[:user]
+
+    get :new
+
+    assert_redirected_to root_url
+  end
 end
