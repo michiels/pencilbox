@@ -1,5 +1,7 @@
 # README
 
+![Build status](https://semaphoreapp.com/api/v1/projects/ffbd1a3d48ed0c867b12ae6673be8360ff79eb54/20378/badge.png)
+
 ## Setting up for development
 
 Link this folder to two Pow domains:
