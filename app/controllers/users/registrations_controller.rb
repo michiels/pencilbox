@@ -25,9 +25,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def ensure_dropbox_box
-    box = Box.where(session['devise.signup_box_id']).first
-    if box.present?
-      redirect_to root_url
-    end
+    box = Box.find(session['devise.signup_box_id'])
+  rescue ActiveRecord::RecordNotFound => e
+    redirect_to root_url
   end
 end
