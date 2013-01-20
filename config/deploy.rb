@@ -31,9 +31,11 @@ before "deploy:finalize_update" do
   run "ln -nfs #{shared_path}/pids #{release_path}/tmp/pids"
   run "ln -nfs #{shared_path}/sockets #{release_path}/tmp/sockets"
   run "ln -nfs #{shared_path}/../config/unicorn.rb #{release_path}/config/unicorn.rb"
+  run "rm -f #{release_path}/config/initializers/secret_token.rb; ln -nfs #{shared_path}/config/initializers/secret_token.rb #{release_path}/config/initializers/secret_token.rb"
 end
 
 before "deploy:update_code", "semaphore:check"
+before "deploy:finalize_update", "deploy:generate_secret"
 
 namespace :semaphore do
   task :check do
@@ -54,7 +56,22 @@ namespace :semaphore do
   end
 end
 
+def remote_file_exists?(full_path)
+  'true' ==  capture("if [ -e #{full_path} ]; then echo 'true'; fi").strip
+end
+
 namespace :deploy do
+  task :generate_secret do
+    if !remote_file_exists?("#{shared_path}/config/initializers/secret_token.rb")
+      secret = `rake secret`
+      secret_stuff = <<-EOF
+Pencilbox::Application.config.secret_key_base = '#{secret}'
+      EOF
+
+      put secret_stuff, "#{shared_path}/config/initializers/secret_token.rb"
+    end
+  end
+
   task :start do
     run "sudo bluepill load /etc/bluepill/#{application}.pill"
   end
