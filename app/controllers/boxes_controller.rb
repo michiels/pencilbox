@@ -10,7 +10,7 @@ class BoxesController < ApplicationController
 
     @box.synchronize!
 
-    @articles = @box.articles.order('published_at desc').paginate page: params[:page]
+    @articles = @box.articles.order('published_at desc').where(dirname: '/').paginate page: params[:page]
   end
 
 end

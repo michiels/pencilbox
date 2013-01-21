@@ -20,10 +20,13 @@ Pencilbox::Application.routes.draw do
 
   constraints host: /^pencilboxes.dev|pencilbox.es/ do
     root to: redirect(host: root_host), defaults: { host: root_host }
-    resources :boxes, :path => "", :defaults => { host: boxes_host } do
+    resources :boxes, path: "/", :defaults => { host: boxes_host }, constraints: { format: /(html)/ }  do
       member do
-        get "images/*filename" => "images#show"
+        get "files/*filename" => "images#show"
       end
+    end
+    constraints box_id: /\w+/ do
+      get ":box_id/*article_path" => "articles#show"
     end
   end
 
