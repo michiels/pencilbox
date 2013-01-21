@@ -23,6 +23,12 @@ class ArticlesController < ApplicationController
     dirname = "" if dirname == "."
     filename = File.basename(params[:article_path])
 
+    if dirname.blank?
+      @asset_dir = "#{filename}"
+    else
+      @asset_dir = dirname.slice(1,-1)
+    end
+
     @articles = Article.where(dirname: "/#{params[:article_path]}")
 
     if !@articles.any?
