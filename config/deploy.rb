@@ -40,15 +40,21 @@ before "deploy:finalize_update", "deploy:generate_secret"
 namespace :semaphore do
   task :check do
     commit_sha = real_revision
-    uri = URI.parse("https://api.github.com/repos/michiels/pencilbox/statuses/#{commit_sha}")
-    http = Net::HTTP.new(uri.host, uri.port)
-    http.use_ssl = true
-    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
-    response = http.get(uri.request_uri)
+    if File.exists(File.expand_path("~/bin/hub"))
+      `~/bin/hub ci-status #{commit_sha}`
+      build_success = $?.success?
+    else
+      uri = URI.parse("https://api.github.com/repos/michiels/pencilbox/statuses/#{commit_sha}")
+      http = Net::HTTP.new(uri.host, uri.port)
+      http.use_ssl = true
+      http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
-    commit_status = JSON.parse(response.body)
-    build_success = commit_status.first['state'] == "success"
+      response = http.get(uri.request_uri)
+
+      commit_status = JSON.parse(response.body)
+      build_success = commit_status.first['state'] == "success"
+    end
 
     if !build_success
       raise CommandError.new("The commit that is being deployed does not have a succesful build status.")
