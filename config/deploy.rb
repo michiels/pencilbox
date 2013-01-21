@@ -41,7 +41,7 @@ namespace :semaphore do
   task :check do
     commit_sha = real_revision
 
-    if File.exists(File.expand_path("~/bin/hub"))
+    if File.exists?(File.expand_path("~/bin/hub"))
       `~/bin/hub ci-status #{commit_sha}`
       build_success = $?.success?
     else
