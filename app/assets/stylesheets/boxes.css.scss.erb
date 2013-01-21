@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import "compass/css3";
+
 body.boxes {
   font-family: sans-serif;
 }
@@ -71,10 +73,11 @@ code {
 }
 
 .highlight {
-  zoom: 1;
-  overflow: auto;
+  overflow-x: auto;
+  margin: 2em 0;
+  @include border-radius(2px);
   pre {
-    padding: 10px;
+    padding: 0px 15px;
   }
 }
 
@@ -102,7 +105,6 @@ article {
   }
 
   pre {
-    margin: 2em 0;
     page-break-inside: never;
   }
 
