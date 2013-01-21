@@ -3,7 +3,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   before_filter :ensure_dropbox_box
 
   def after_sign_up_path_for(resource)
-    box_url(resource.box)
+    box_url(id: resource.username)
   end
   
   protected
