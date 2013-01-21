@@ -26,7 +26,7 @@ Pencilbox::Application.routes.draw do
       end
     end
     constraints box_id: /\w+/ do
-      get ":box_id/*article_path" => "articles#show"
+      get ":box_id/*article_path" => "articles#show", as: :article
     end
   end
 

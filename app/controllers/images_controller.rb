@@ -10,7 +10,7 @@ class ImagesController < ApplicationController
 
     file = "/#{params[:filename]}"
 
-    send_data @client.get_file(file), disposition: 'inline'
+    redirect_to @client.media(file)['url']
   end
 
 end

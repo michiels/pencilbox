@@ -1,7 +1,8 @@
 class BoxesController < ApplicationController
 
   def show
-    @box = User.where(username: params[:id]).first.try(:box)
+    @user = User.where(username: params[:id]).first!
+    @box = @user.box
 
     if @box.blank?
       render :not_found
