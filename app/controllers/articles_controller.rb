@@ -16,7 +16,8 @@ class ArticlesController < ApplicationController
       @asset_dir = dirname.slice(1,-1)
     end
 
-    @articles = Article.where(dirname: "/#{params[:article_path]}")
+    @folder = @box.folders.where(path: "/#{params[:article_path]}").first
+    @articles = @box.articles.where(dirname: "/#{params[:article_path]}")
 
     if !@articles.any?
       @articles = [@box.articles.where(dirname: "/#{dirname}", slug: filename).first!]
