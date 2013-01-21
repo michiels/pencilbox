@@ -8,6 +8,20 @@
   <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
   <link href='http://fonts.googleapis.com/css?family=Donegal+One' rel='stylesheet' type='text/css'>
   
+  <%= render "mixpanel" %>
+
+  <% if user_signed_in? %>
+  <script type="text/javascript">
+    mixpanel.identify("<%= current_user.email %>")
+
+    mixpanel.people.set({
+      "$email": "<%= current_user.email %>",
+      "username": "<%= current_user.username %>",
+      "$created": "<%= current_user.created_at %>"
+    })
+  </script>
+  <% end %>
+
 </head>
 <body>
 
