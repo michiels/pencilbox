@@ -24,6 +24,13 @@ GIT
       warden (~> 1.2.1)
 
 GIT
+  remote: git://github.com/firmhouse/hub.git
+  revision: 907ae43c620b8b593f64af5a0ac1a8f24897754f
+  branch: commit-statuses
+  specs:
+    hub (1.10.4)
+
+GIT
   remote: git://github.com/rails/activerecord-deprecated_finders.git
   revision: 2e7b35d7948cefb2bba96438873d7f7bb1961a03
   specs:
@@ -250,6 +257,7 @@ DEPENDENCIES
   dropbox-sdk
   exception_notification
   font-awesome-rails!
+  hub!
   journey!
   jquery-rails
   mysql2

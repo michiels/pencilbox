@@ -46,6 +46,7 @@ gem 'unicorn'
 
 # Deploy with Capistrano
 gem 'capistrano', group: :development
+gem 'hub', github: 'firmhouse/hub', branch: 'commit-statuses', group: :development
 
 # To use debugger
 # gem 'debugger'

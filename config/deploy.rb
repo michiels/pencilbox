@@ -34,15 +34,15 @@ before "deploy:finalize_update" do
   run "rm -f #{release_path}/config/initializers/secret_token.rb; ln -nfs #{shared_path}/config/initializers/secret_token.rb #{release_path}/config/initializers/secret_token.rb"
 end
 
-before "deploy:update_code", "semaphore:check"
+before "deploy:update_code", "ci:check"
 before "deploy:finalize_update", "deploy:generate_secret"
 
-namespace :semaphore do
+namespace :ci do
   task :check do
     commit_sha = real_revision
 
     if File.exists?(File.expand_path("~/bin/hub"))
-      `~/bin/hub ci-status #{commit_sha}`
+      `hub ci-status #{commit_sha}`
       build_success = $?.success?
     else
       uri = URI.parse("https://api.github.com/repos/michiels/pencilbox/statuses/#{commit_sha}")
