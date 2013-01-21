@@ -1,6 +1,0 @@
-<% @articles.each do |article| %>
-  <article>
-    <% markdown = Redcarpet::Markdown.new(HTMLWithAlbino, :fenced_code_blocks => true) %>
-    <%= raw(markdown.render(article.body).gsub(/src=\"(.+\.(png|jpg))\"/) { "src=\"#{box_path(@box.user.username)}/files/#{$1}\""}) %>
-  </article>
-<% end %>
