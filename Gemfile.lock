@@ -31,6 +31,49 @@ GIT
     hub (1.10.4)
 
 GIT
+  remote: git://github.com/firmhouse/rails.git
+  revision: 2ef138f0d49e92550bb74a103df7ce5074b18241
+  branch: head-breaks-csrf
+  specs:
+    actionmailer (4.0.0.beta)
+      actionpack (= 4.0.0.beta)
+      mail (~> 2.5.3)
+    actionpack (4.0.0.beta)
+      activesupport (= 4.0.0.beta)
+      builder (~> 3.1.0)
+      erubis (~> 2.7.0)
+      rack (~> 1.4.3)
+      rack-test (~> 0.6.1)
+    activemodel (4.0.0.beta)
+      activesupport (= 4.0.0.beta)
+      builder (~> 3.1.0)
+    activerecord (4.0.0.beta)
+      activemodel (= 4.0.0.beta)
+      activerecord-deprecated_finders (~> 0.0.3)
+      activesupport (= 4.0.0.beta)
+      arel (~> 3.0.2)
+    activesupport (4.0.0.beta)
+      i18n (~> 0.6)
+      minitest (~> 4.1)
+      multi_json (~> 1.3)
+      thread_safe (~> 0.1)
+      tzinfo (~> 0.3.33)
+    rails (4.0.0.beta)
+      actionmailer (= 4.0.0.beta)
+      actionpack (= 4.0.0.beta)
+      activerecord (= 4.0.0.beta)
+      activesupport (= 4.0.0.beta)
+      bundler (>= 1.2.2, < 2.0)
+      railties (= 4.0.0.beta)
+      sprockets-rails (~> 2.0.0.rc1)
+    railties (4.0.0.beta)
+      actionpack (= 4.0.0.beta)
+      activesupport (= 4.0.0.beta)
+      rake (>= 0.8.7)
+      rdoc (~> 3.4)
+      thor (>= 0.15.4, < 2.0)
+
+GIT
   remote: git://github.com/rails/activerecord-session_store.git
   revision: 9110aa19ca4879400e9425b871b114de5fcc9949
   specs:
@@ -71,47 +114,6 @@ GIT
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
-
-PATH
-  remote: ../rails
-  specs:
-    actionmailer (4.0.0.beta)
-      actionpack (= 4.0.0.beta)
-      mail (~> 2.5.3)
-    actionpack (4.0.0.beta)
-      activesupport (= 4.0.0.beta)
-      builder (~> 3.1.0)
-      erubis (~> 2.7.0)
-      rack (~> 1.4.3)
-      rack-test (~> 0.6.1)
-    activemodel (4.0.0.beta)
-      activesupport (= 4.0.0.beta)
-      builder (~> 3.1.0)
-    activerecord (4.0.0.beta)
-      activemodel (= 4.0.0.beta)
-      activerecord-deprecated_finders (~> 0.0.3)
-      activesupport (= 4.0.0.beta)
-      arel (~> 3.0.2)
-    activesupport (4.0.0.beta)
-      i18n (~> 0.6)
-      minitest (~> 4.1)
-      multi_json (~> 1.3)
-      thread_safe (~> 0.1)
-      tzinfo (~> 0.3.33)
-    rails (4.0.0.beta)
-      actionmailer (= 4.0.0.beta)
-      actionpack (= 4.0.0.beta)
-      activerecord (= 4.0.0.beta)
-      activesupport (= 4.0.0.beta)
-      bundler (>= 1.2.2, < 2.0)
-      railties (= 4.0.0.beta)
-      sprockets-rails (~> 2.0.0.rc1)
-    railties (4.0.0.beta)
-      actionpack (= 4.0.0.beta)
-      activesupport (= 4.0.0.beta)
-      rake (>= 0.8.7)
-      rdoc (~> 3.4)
-      thor (>= 0.15.4, < 2.0)
 
 GEM
   remote: https://rubygems.org/
