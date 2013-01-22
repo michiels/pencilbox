@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130120152645) do
+ActiveRecord::Schema.define(version: 20130121225320) do
 
   create_table "articles", force: true do |t|
     t.integer  "box_id"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 20130120152645) do
     t.text     "body",         limit: 16777215
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "dirname"
+    t.string   "slug"
   end
 
   create_table "boxes", force: true do |t|
@@ -34,6 +36,13 @@ ActiveRecord::Schema.define(version: 20130120152645) do
   end
 
   add_index "boxes", ["user_id"], name: "index_boxes_on_user_id"
+
+  create_table "folders", force: true do |t|
+    t.string   "path"
+    t.integer  "box_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "sessions", force: true do |t|
     t.string   "session_id", null: false

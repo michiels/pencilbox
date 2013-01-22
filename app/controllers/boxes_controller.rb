@@ -1,7 +1,8 @@
 class BoxesController < ApplicationController
 
   def show
-    @box = User.where(username: params[:id]).first.try(:box)
+    @user = User.where(username: params[:id]).first!
+    @box = @user.box
 
     if @box.blank?
       render :not_found
@@ -10,7 +11,7 @@ class BoxesController < ApplicationController
 
     @box.synchronize!
 
-    @articles = @box.articles.order('published_at desc').paginate page: params[:page]
+    @articles = @box.articles.order('published_at desc').where(dirname: '/').paginate page: params[:page]
   end
 
 end
