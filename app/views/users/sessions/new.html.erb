@@ -8,7 +8,9 @@
     <% if alert %>
       <p class="alert"><%= alert %></p>
     <% else %>
-      <p>Or, <%= link_to "link up your Dropbox", root_url %>.</p>
+      <p><%= link_to "Using Dropbox", root_url, :class => "link_button" %></p>
+      <p>or</p>
+<!--       <p>Username and password</p> -->
     <% end %>
 
     <div class="account_details">
