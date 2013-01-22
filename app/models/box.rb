@@ -1,5 +1,6 @@
 class Box < ActiveRecord::Base
   has_many :articles, dependent: :destroy
+  has_many :folders, dependent: :destroy
   
   belongs_to :user
 
@@ -21,20 +22,31 @@ class Box < ActiveRecord::Base
 
       ordered_files.each do |path, dropbox_file|
         article = self.articles.where(path: path).first_or_initialize
+        folder = self.folders.where(path: path).first_or_initialize
 
         if dropbox_file.nil?
           article.destroy
+          folder.destroy
         else
-          if article.new_record?
-            if %w(text/plain application/octet-stream).include?(dropbox_file['mime_type']) && path.count('/') < 2
-              article.published_at = Time.now
+          if dropbox_file['is_dir']
+            folder.save
+          else
+            if article.new_record?
+              if %w(text/plain application/octet-stream).include?(dropbox_file['mime_type'])
+                article.published_at = Time.now
+                article.body = client.get_file(path)
+                article.dirname = File.dirname(path)
+                article.slug = File.basename(path, File.extname(path)).parameterize
+                article.save
+              end
+            elsif article.updated_at < dropbox_file['modified']
               article.body = client.get_file(path)
+              article.updated_at = dropbox_file['modified']
+              article.dirname = File.dirname(path)
+              article.slug = File.basename(path, File.extname(path)).parameterize
               article.save
             end
-          elsif article.updated_at < dropbox_file['modified']
-            article.body = client.get_file(path)
-            article.updated_at = dropbox_file['modified']
-            article.save
+
           end
 
         end
