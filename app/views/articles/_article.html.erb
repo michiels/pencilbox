@@ -1,4 +1,4 @@
 <article>
   <% markdown = Redcarpet::Markdown.new(HTMLWithAlbino, :fenced_code_blocks => true) %>
-  <%= raw(markdown.render(article.body).gsub(/src=\"(.+\.(png|jpg))\"/) { "src=\"#{box_path(@user.username)}/files/#{@asset_dir}/#{$1}\""}.sub(/\<h1\>(.+)\<\/h1\>/) { "<h1>#{link_to $1, article_path(article_path: article.to_param, box_id: @user.username)}</h1>"}) %>
+  <%= raw(markdown.render(sanitize(article.body, tags: %w(script table tr td a img div), attributes: %w(style class type))).gsub(/src=\"(.+\.(png|jpg))\"/) { "src=\"#{box_path(@user.username)}/files/#{@asset_dir}/#{$1}\""}.sub(/\<h1\>(.+)\<\/h1\>/) { "<h1>#{link_to $1, article_path(article_path: article.to_param, box_id: @user.username)}</h1>"}) %>
 </article>
