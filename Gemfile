@@ -1,9 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'rails',     github: 'rails/rails'
-gem 'journey',   github: 'rails/journey'
+gem 'rails',     github: 'firmhouse/rails', branch: 'head-breaks-csrf'
 gem 'arel',      github: 'rails/arel'
-gem 'activerecord-deprecated_finders', github: 'rails/activerecord-deprecated_finders'
 
 gem 'mysql2'
 
