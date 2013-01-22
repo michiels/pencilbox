@@ -31,20 +31,20 @@ animation-delay: 0.7s;
 }
  
 .fade-in.two {
--webkit-animation-delay: 1s;
--moz-animation-delay: 1s;
-animation-delay: 1s;
+-webkit-animation-delay: 1.2s;
+-moz-animation-delay: 1.2s;
+animation-delay: 1.2s;
 }
  
 .fade-in.three {
--webkit-animation-delay: 2.4s;
--moz-animation-delay: 2.4s;
-animation-delay: 2.4s;
+-webkit-animation-delay: 2.6s;
+-moz-animation-delay: 2.6s;
+animation-delay: 2.6s;
 }
 .fade-in.four {
-  -webkit-animation-delay: 4s;
-  -moz-animation-delay: 4s;
-  animation-delay: 4s;
+  -webkit-animation-delay: 4.5s;
+  -moz-animation-delay: 4.5s;
+  animation-delay: 4.5s;
 }
 
 body {
@@ -66,8 +66,9 @@ body {
   font-size: 1.1em;
   line-height: 1.5em;
   text-justify: inter-word;
-  max-width: 500px;
+  max-width: 460px;
   margin: 1.3em auto;
+  color: #333333;
 }
 
 @media (max-height: 480px) {
@@ -128,7 +129,24 @@ body {
   p.hint {
     color: #555;
     font-size: 14px;
+    -webkit-transition: ease-in-out 1;
+    -moz-transition: ease-in-out 1;
+    transition: ease-in-out 1;
+    -webkit-transition-duration: 1s;
+    -moz-transition-duration: 1s;
+    transition-duration: 1s;
+    opacity: 0.5;
   }
+}
+
+.linker:hover > p.hint {
+  -webkit-transition: ease-in-out 1;
+  -moz-transition: ease-in-out 1;
+  transition: ease-in-out 1;
+  -webkit-transition-duration: 1s;
+  -moz-transition-duration: 1s;
+  transition-duration: 1s;
+  opacity: 0.9;
 }
 
 @media (max-height: 480px) {
