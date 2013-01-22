@@ -1,5 +1,7 @@
 class Article < ActiveRecord::Base
 
+  belongs_to :box
+
   def to_param
     slug_dirname = dirname.sub(/\//, '')
 

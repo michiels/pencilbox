@@ -1,13 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  box_id: 1
-  path: MyString
+single_file:
+  box: for_michiel
+  path: /single_file.md
   published_at: 2013-01-13 17:42:44
-  body: MyText
-
-two:
-  box_id: 1
-  path: MyString
-  published_at: 2013-01-13 17:42:44
-  body: MyText
+  body: This is ma body
+  dirname: /
+  slug: single_file
