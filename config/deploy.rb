@@ -44,7 +44,7 @@ namespace :ci do
     `bundle exec hub ci-status #{commit_sha}`
     build_success = $?.success?
 
-    if !build_success
+    if !build_success && !ENV['IGNORE_CI']
       raise CommandError.new("The commit that is being deployed does not have a succesful build status.")
     end
   end
