@@ -3,13 +3,12 @@
   <%= form_for resource, as: resource_name, url: session_path(resource_name), html: { class: "new_user form-inline" } do |f| %>
 
     <h1>Welcome back.</h1>
-    <p>It's time to write your next article.</p>
 
     <% if alert %>
       <p class="alert"><%= alert %></p>
     <% else %>
-      <p><%= link_to "Using Dropbox", link_dropbox_path, :class => "link_button" %></p>
-      <p>or</p>
+      <p><%= link_to "Sign in with Dropbox", link_dropbox_path, :class => "link_button" %></p>
+      <p>---- or ----</p>
 <!--       <p>Username and password</p> -->
     <% end %>
 
@@ -23,7 +22,7 @@
 
       <div class="control-group">
         <div class="controls">
-          <%= f.password_field :password, placeholder: "Choose a password" %>
+          <%= f.password_field :password, placeholder: "Your password" %>
         </div>
       </div>
     </div>
