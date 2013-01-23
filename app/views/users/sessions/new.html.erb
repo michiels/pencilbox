@@ -2,12 +2,14 @@
 
   <%= form_for resource, as: resource_name, url: session_path(resource_name), html: { class: "new_user form-inline" } do |f| %>
 
-    <h1>Sign in</h1>
+    <h1>Welcome back.</h1>
 
     <% if alert %>
       <p class="alert"><%= alert %></p>
     <% else %>
-      <p>Or, <%= link_to "link up your Dropbox", root_url %>.</p>
+      <p><%= link_to "Sign in with Dropbox", link_dropbox_path, :class => "link_button" %></p>
+      <p>---- or ----</p>
+<!--       <p>Username and password</p> -->
     <% end %>
 
     <div class="account_details">
@@ -20,14 +22,14 @@
 
       <div class="control-group">
         <div class="controls">
-          <%= f.password_field :password, placeholder: "Choose a password" %>
+          <%= f.password_field :password, placeholder: "Your password" %>
         </div>
       </div>
     </div>
 
     <div class="control-group">
       <div class="controls">
-        <%= f.submit "Sign in", class: "btn-inverse btn-large btn" %>
+        <%= f.submit "Sign in", class: "btn btn-large btn" %>
       </div>
     </div>
 

@@ -1,14 +1,16 @@
 <script type="text/javascript">mixpanel.track('Viewed homepage')</script>
 
-<p class="frontpage_account">
+<p class="frontpage_account fade-in four">
   <%= link_to new_user_session_path do %>
-    <i class="icon-signin"></i> Sign in
+  	Sign in <i class="icon-signin"></i>
   <% end %>
 </p>
 
-<div class="frontpage_center">This is Pencilbox</div>
+<div class="frontpage_center fade-in one">This is Pencilbox</div>
+<div class="frontpage_payoff fade-in two">The simplest way to publish straight from iA Writer.</div>
+<!-- <div class="frontpage_explanation fade-in three">Pencilbox let's you publish articles on a web page, straight from iA Writer. Save your iA Writer document in the Pencilbox folder in your Dropbox. With a little magic your article is published, no extra steps needed.</div> -->
 
-<div class="linker">
+<div class="linker fade-in three">
   <p><%= link_to "Link up with Dropbox", link_dropbox_path, :class => "link_button", :"data-no-turbolink" => "", :id => "dropbox-signup-frontpage" %></p>
-  <p class="hint">This will create a folder for Pencilbox at <code>&lt;Your Dropbox&gt;/Apps/Pencilbox</code>. <br />This is the only folder I have access to.</p>
+  <p class="hint" id="hint-dropbox">This will create a folder for Pencilbox at <code>&lt;Your Dropbox&gt;/Apps/Pencilbox</code>. <br />This is the only folder I have access to.</p>
 </div>
