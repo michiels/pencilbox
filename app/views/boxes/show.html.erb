@@ -1,1 +1,5 @@
-<%= render @articles %>
+<% if @articles.any? %>
+  <%= render @articles %>
+<% else %>
+  <%= render "account_introduction" %>
+<% end %>
