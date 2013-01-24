@@ -15,5 +15,9 @@ module Pencilbox
     config.autoload_paths += %W(#{config.root}/extras)
 
     config.assets.precompile += %w( fontawesome-webfont.ttf fontawesome-webfont.woff )
+
+    config.after_initialize do
+      ActionView::Base.sanitized_allowed_tags << 'iframe'
+    end
   end
 end
