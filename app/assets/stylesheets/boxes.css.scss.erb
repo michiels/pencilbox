@@ -31,8 +31,12 @@ body.with_message {
 }
 
 @media print {
+
   body {
-    // font-family: serif;
+    padding-top: 0;
+    .branding {
+      display: none;
+    }
   }
   .highlight pre {
     background-color: #f0f0f0;
