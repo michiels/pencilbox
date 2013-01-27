@@ -10,7 +10,12 @@ class ImagesController < ApplicationController
 
     file = "/#{params[:filename]}"
 
-    redirect_to @client.media(file)['url']
+    begin
+      file_url = @client.media(file)['url']
+      redirect_to file_url
+    rescue DropboxError => e
+      render :text => e.message, :status => :not_found
+    end
   end
 
 end
