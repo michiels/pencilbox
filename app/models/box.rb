@@ -1,3 +1,5 @@
+require 'iconv'
+
 class Box < ActiveRecord::Base
   has_many :articles, dependent: :destroy
   has_many :folders, dependent: :destroy
@@ -13,7 +15,7 @@ class Box < ActiveRecord::Base
   def synchronize!
     if @@perform_sync
       dbsession = DropboxSession.new(ENV['DROPBOX_APP_KEY'], ENV['DROPBOX_APP_SECRET'])
-      dbsession.set_access_token(self.dropbox_access_key, self.dropbox_access_secret)
+      dbsession.set_access_token(self.dropbox_access_kic = Iconv.new('UTF-8//IGNORE', 'UTF-8')ey, self.dropbox_access_secret)
 
       client = DropboxClient.new(dbsession, :app_folder)
 
@@ -32,18 +34,19 @@ class Box < ActiveRecord::Base
             folder.save
           else
             begin
+              ic = Iconv.new('UTF8//IGNORE', 'UTF-8')
               if article.new_record?
                 if %w(text/plain application/octet-stream).include?(dropbox_file['mime_type'])
                   article.published_at = Time.now
-                  file_contents =  client.get_file(path).dup
-                  article.body = file_contents.encode("ASCII-8BIT", invalid: :replace, undef: :replace, replace: '')
+                  file_contents =  client.get_file(path)
+                  article.body = ic.iconv(file_contents)
                   article.dirname = File.dirname(path)
                   article.slug = File.basename(path, File.extname(path)).parameterize
                   article.save
                 end
               elsif article.updated_at < dropbox_file['modified']
-                file_contents =  client.get_file(path).dup
-                article.body = file_contents.encode("ASCII-8BIT", invalid: :replace, undef: :replace, replace: '')
+                file_contents =  client.get_file(path)
+                article.body = ic.iconv(file_contents)
                 article.updated_at = dropbox_file['modified']
                 article.dirname = File.dirname(path)
                 article.slug = File.basename(path, File.extname(path)).parameterize
