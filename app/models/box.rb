@@ -31,24 +31,27 @@ class Box < ActiveRecord::Base
           if dropbox_file['is_dir']
             folder.save
           else
-            if article.new_record?
-              if %w(text/plain application/octet-stream).include?(dropbox_file['mime_type'])
-                article.published_at = Time.now
+            begin
+              if article.new_record?
+                if %w(text/plain application/octet-stream).include?(dropbox_file['mime_type'])
+                  article.published_at = Time.now
+                  file_contents =  client.get_file(path)
+                  article.body = file_contents.encode("ASCII-8BIT", invalid: :replace, undef: :replace)
+                  article.dirname = File.dirname(path)
+                  article.slug = File.basename(path, File.extname(path)).parameterize
+                  article.save
+                end
+              elsif article.updated_at < dropbox_file['modified']
                 file_contents =  client.get_file(path)
                 article.body = file_contents.encode("ASCII-8BIT", invalid: :replace, undef: :replace)
+                article.updated_at = dropbox_file['modified']
                 article.dirname = File.dirname(path)
                 article.slug = File.basename(path, File.extname(path)).parameterize
                 article.save
               end
-            elsif article.updated_at < dropbox_file['modified']
-              file_contents =  client.get_file(path)
-              article.body = file_contents.encode("ASCII-8BIT", invalid: :replace, undef: :replace)
-              article.updated_at = dropbox_file['modified']
-              article.dirname = File.dirname(path)
-              article.slug = File.basename(path, File.extname(path)).parameterize
-              article.save
+            rescue Exception => e
+              raise "#{e.message}: #{file_conents.encoding.name}"
             end
-
           end
 
         end
