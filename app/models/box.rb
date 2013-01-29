@@ -35,14 +35,14 @@ class Box < ActiveRecord::Base
               if article.new_record?
                 if %w(text/plain application/octet-stream).include?(dropbox_file['mime_type'])
                   article.published_at = Time.now
-                  file_contents =  client.get_file(path)
+                  file_contents =  client.get_file(path).dup
                   article.body = file_contents.encode("ASCII-8BIT", invalid: :replace, undef: :replace, replace: '')
                   article.dirname = File.dirname(path)
                   article.slug = File.basename(path, File.extname(path)).parameterize
                   article.save
                 end
               elsif article.updated_at < dropbox_file['modified']
-                file_contents =  client.get_file(path)
+                file_contents =  client.get_file(path).dup
                 article.body = file_contents.encode("ASCII-8BIT", invalid: :replace, undef: :replace, replace: '')
                 article.updated_at = dropbox_file['modified']
                 article.dirname = File.dirname(path)
