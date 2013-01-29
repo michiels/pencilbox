@@ -10,14 +10,14 @@ class ArticlesController < ApplicationController
     dirname = "" if dirname == "."
     filename = File.basename(params[:article_path])
 
-    if dirname.blank?
-      @asset_dir = "#{filename}"
+    @folder = @box.folders.where(path: "/#{params[:article_path]}").first
+    @articles = @box.articles.where(dirname: "/#{params[:article_path]}")
+
+    if @folder
+      @asset_dir = @folder.path
     else
       @asset_dir = dirname.slice(1,-1)
     end
-
-    @folder = @box.folders.where(path: "/#{params[:article_path]}").first
-    @articles = @box.articles.where(dirname: "/#{params[:article_path]}")
 
     if !@articles.any?
       @articles = [@box.articles.where(dirname: "/#{dirname}", slug: filename).first!]
