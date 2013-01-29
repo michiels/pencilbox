@@ -15,7 +15,7 @@ class Box < ActiveRecord::Base
   def synchronize!
     if @@perform_sync
       dbsession = DropboxSession.new(ENV['DROPBOX_APP_KEY'], ENV['DROPBOX_APP_SECRET'])
-      dbsession.set_access_token(self.dropbox_access_kic = Iconv.new('UTF-8//IGNORE', 'UTF-8')ey, self.dropbox_access_secret)
+      dbsession.set_access_token(self.dropbox_access_key, self.dropbox_access_secret)
 
       client = DropboxClient.new(dbsession, :app_folder)
 
