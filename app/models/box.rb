@@ -50,7 +50,7 @@ class Box < ActiveRecord::Base
                 article.save
               end
             rescue Exception => e
-              raise "#{e.message}: #{file_conents.encoding.name}"
+              raise "#{e.message}: #{file_contents.encoding.name} #{path} #{path.encoding.name}"
             end
           end
 
