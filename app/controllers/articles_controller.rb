@@ -15,6 +15,7 @@ class ArticlesController < ApplicationController
 
     if @folder
       @asset_dir = @folder.path
+      @articles = @articles.order('slug ASC')
     else
       @asset_dir = dirname.slice(1,-1)
     end
